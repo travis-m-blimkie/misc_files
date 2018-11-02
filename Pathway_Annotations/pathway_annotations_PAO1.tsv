@@ -1,4 +1,4 @@
-Locus Tag	Product	Pathway Name	Pathway Xref	Pathway Database	Pathway Version	ECO code	ECO term	PMID
+Locus_Tag	Product	Pathway_Name	Pathway_Xref	Pathway_Database	Pathway_Version	ECO_code	ECO_term	PMID
 PA1598	conserved hypothetical protein	(R)-pantothenate biosynthesis	UPA00028	UniPathway	InterPro 5.8-49.0	ECO:0000259	match to InterPro signature evidence used in automatic assertion	NA
 PA1752	hypothetical protein	(R)-pantothenate biosynthesis	UPA00028	UniPathway	InterPro 5.8-49.0	ECO:0000259	match to InterPro signature evidence used in automatic assertion	NA
 PA4397	ketopantoate reductase	(R)-pantothenate biosynthesis	UPA00028	UniPathway	InterPro 5.8-49.0	ECO:0000259	match to InterPro signature evidence used in automatic assertion	NA

@@ -1,4 +1,4 @@
-Locus Tag	Product	Pathway Name	Pathway Xref	Pathway Database	Pathway Version	ECO code	ECO term	PMID
+Locus_Tag	Product	Pathway_Name	Pathway_Xref	Pathway_Database	Pathway_Version	ECO_code	ECO_term	PMID
 PA14_68330	arginine deiminase	Arginine and proline metabolism	NA	PseudoCAP	NA	ECO:0000037	not_recorded	NA
 PA14_41900	2-dehydropantoate 2-reductase	(R)-pantothenate biosynthesis	UPA00028	UniPathway	InterPro 5.8-49.0	ECO:0000259	match to InterPro signature evidence used in automatic assertion	NA
 PA14_43830	3-methyl-2-oxobutanoate hydroxymethyltransferase	(R)-pantothenate biosynthesis	UPA00028	UniPathway	InterPro 5.8-49.0	ECO:0000259	match to InterPro signature evidence used in automatic assertion	NA
