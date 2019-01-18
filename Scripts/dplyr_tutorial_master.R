@@ -28,7 +28,7 @@ starwars <- starwars
 
 # select() ----------------------------------------------------------------
 
-# Now, let's use select() to extract a few columns from the overall dataset
+# Now, let's use select() to extract a few columns from the overall dataset.
 # The way we do this is as follows:
 new_df <- select(my_df, col1, col2, col4, ...)
 
@@ -42,7 +42,7 @@ new_df <- my_df %>%
   select(.data = ., col1, col2, col4, ...)
 
 # The "." is simply a placeholder for the object being piped (my_df in this
-# case). For our starwars data, it look like this:
+# example). For our starwars data, it look like this:
 starwars_2 <- starwars %>%
   select(.data = ., name, height, mass, homeworld, species)
 
@@ -58,9 +58,9 @@ new_df <- my_df %>% filter(col1 < 0)
 # Or, for strings (i.e. "words"):
 new_df <- my_df %>% filter(col2 == "blue")
 
-# Equality in R is done using "==", while "=" is for assignment of aguments
+# Equality in R is done using "==", while "=" is for assignment of aguments.
 
-# Lets use filter to pick certain rows from the starwars data
+# Lets use filter to pick certain rows from the starwars data:
 starwars_3 <- starwars %>% filter(species == "Human")
 
 # Another example, this time using a numeric column (i.e. logical criteria):
