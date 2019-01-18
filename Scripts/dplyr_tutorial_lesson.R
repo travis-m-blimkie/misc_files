@@ -32,7 +32,8 @@ starwars <- starwars
 # The way we do this is as follows:
 new_df <- select(my_df, col1, col2, col4, ...)
 
-# For our starwars dataset, this would work as follows:
+# For our starwars dataset, this would work as follows, selecting the name,
+# height, mass, homeworld, and species columns.
 # CODE HERE
 
 # We can rewrite the same command, this time making use of the %>% function.
@@ -42,7 +43,8 @@ new_df <- my_df %>%
   select(.data = ., col1, col2, col4, ...)
 
 # The "." is simply a placeholder for the object being piped (my_df in this
-# example). For our starwars data, it look like this:
+# example). For our starwars data, choosing the same columns as above, it
+# would look like this:
 # CODE HERE
 
 
@@ -59,10 +61,12 @@ new_df <- my_df %>% filter(col2 == "blue")
 
 # Equality in R is done using "==", while "=" is for assignment of aguments.
 
-# Lets use filter to pick certain rows from the starwars data:
+# Let's use filter to pick certain rows from the starwars data, choosing
+# characters (rows) which are human:
 # CODE HERE
 
-# Another example, this time using a numeric column (i.e. logical criteria):
+# Another example, this time using a numeric column (i.e. logical criteria) to
+# filter for characters above a certain height:
 # CODE HERE
 
 
@@ -73,7 +77,7 @@ new_df <- my_df %>% filter(col2 == "blue")
 # strings). It works as follows:
 new_df <- my_df %>% mutate(new_col = col1 * 2)
 
-# Let's use mutate() to convert the mass column from kg to lbs
+# Let's use mutate() to convert the mass column from kg to lbs:
 # CODE HERE
 
 
@@ -97,7 +101,7 @@ new_df <- my_df %>%
 
 # These functions allow us to perform operations on subsets of data.
 # group_by() "groups" rows based on a column/value, e.g. all rows for which
-# "species" is equal to human. Then, summarize() performs some operation on
+# "species" is equal to human. Then, summarise() performs some operation on
 # each group as a whole.
 new_df <- my_df %>%
   group_by(col1) %>%
@@ -108,7 +112,7 @@ new_df <- my_df %>%
 # CODE HERE
 
 # Another example, this time getting two different summaries, one for height
-# and one for mass (both will be a mean() ).
+# and one for mass (both will be a mean() calculation).
 # CODE HERE
 
 

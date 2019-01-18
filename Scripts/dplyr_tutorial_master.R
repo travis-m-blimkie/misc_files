@@ -60,7 +60,7 @@ new_df <- my_df %>% filter(col2 == "blue")
 
 # Equality in R is done using "==", while "=" is for assignment of aguments.
 
-# Lets use filter to pick certain rows from the starwars data:
+# Let's use filter to pick certain rows from the starwars data:
 starwars_3 <- starwars %>% filter(species == "Human")
 
 # Another example, this time using a numeric column (i.e. logical criteria):
@@ -74,7 +74,7 @@ starwars_4 <- starwars %>% filter(height >= 100)
 # strings). It works as follows:
 new_df <- my_df %>% mutate(new_col = col1 * 2)
 
-# Let's use mutate() to convert the mass column from kg to lbs
+# Let's use mutate() to convert the mass column from kg to lbs:
 starwars_5 <- starwars %>% mutate(mass_lbs = mass * 2.2)
 
 
@@ -101,7 +101,7 @@ starwars_new <- starwars %>%
 
 # These functions allow us to perform operations on subsets of data.
 # group_by() "groups" rows based on a column/value, e.g. all rows for which
-# "species" is equal to human. Then, summarize() performs some operation on
+# "species" is equal to human. Then, summarise() performs some operation on
 # each group as a whole.
 new_df <- my_df %>%
   group_by(col1) %>%
