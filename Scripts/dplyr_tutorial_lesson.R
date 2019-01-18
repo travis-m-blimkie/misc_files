@@ -1,4 +1,4 @@
-# Intro to manipulating data with dplyr!
+# Intro to Data Manipulation with dplyr!
 
 # Here we will cover some of the most commonly used dplyr functions, using one
 # of dplyr's practice datasets. Specifically, we will be looking at five
@@ -22,7 +22,7 @@
 
 # Load the data -----------------------------------------------------------
 
-# The dataset is starwars, from dplyr, and can be loaded as follows
+# The dataset we will use is starwars, from dplyr, and can be loaded as follows
 library(dplyr)
 
 starwars <- starwars
@@ -47,8 +47,8 @@ new_df <- select(my_df, col1, col2, col4, ...)
 new_df <- my_df %>% select(.data = ., col1, col2, col4, ...)
 
 # The "." is simply a placeholder for the object being piped (my_df in this
-# example). Now let's apply this different method to our starwars data,
-# selecting the same columns as before.
+# example). Now let's apply this method to our starwars data, selecting the
+# same columns as before.
 # CODE HERE
 
 
