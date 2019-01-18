@@ -11,6 +11,9 @@
 
 # We will also cover the use of the pipe ( %>% ) function.
 
+# Link to the Software Carpentry page:
+# https://swcarpentry.github.io/r-novice-gapminder/13-dplyr/index.html
+
 
 # Load the data -----------------------------------------------------------
 
