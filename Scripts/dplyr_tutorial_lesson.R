@@ -1,15 +1,20 @@
 # Intro to manipulating data with dplyr!
-# Here We will cover some of the most commonly used functions, using one of
-# dplyr's practice datasets. Specifically, we will be looking at five
-# functions:
 
-# 1. select() - extract columns
-# 2. filter() - extract rows
+# Here we will cover some of the most commonly used dplyr functions, using one
+# of dplyr's practice datasets. Specifically, we will be looking at five
+# functions used to manipulate dataframes (tables):
+
+# 1. select() - extract columns based on name or index
+# 2. filter() - extract rows based on some criteria
 # 3. mutate() - add new columns based on existing ones
 # 4. group_by() - group rows (observations) by value in a given column
-# 5. summarize() - perform action/function on groups
+# 5. summarize() - perform action/function on whole groups
 
-# We will also cover the use of the pipe ( %>% ) function.
+# We will also cover the use of the pipe ( %>% ) function, used to send the
+# output of one command/function into another.
+
+# Finally, we will see how pipes allow us to chain or link multiple functions
+# into a single, elegant step.
 
 # Link to the Software Carpentry page:
 # https://swcarpentry.github.io/r-novice-gapminder/13-dplyr/index.html
@@ -23,36 +28,36 @@ library(dplyr)
 starwars <- starwars
 
 # There are 13 columns (attributes, or variables) and 87 rows (characters, or
-# observations)
+# observations).
 
 
 # select() ----------------------------------------------------------------
 
-# Now, let's use select() to extract a few columns from the overall dataset.
-# The way we do this is as follows:
+# Let's use select() to extract a few columns from the overall dataset. The way
+# we do this is as follows:
 new_df <- select(my_df, col1, col2, col4, ...)
 
-# For our starwars dataset, this would work as follows, selecting the name,
-# height, mass, homeworld, and species columns.
+# For our starwars dataset, we could select the name, height, mass, homeworld,
+# and species columns.
 # CODE HERE
 
 # We can rewrite the same command, this time making use of the %>% function.
-# This function pushes or "pipes" the desired object into the following
+# This function pushes, sends, or "pipes" the desired object into the subsequent
 # function.
-new_df <- my_df %>%
-  select(.data = ., col1, col2, col4, ...)
+new_df <- my_df %>% select(.data = ., col1, col2, col4, ...)
 
 # The "." is simply a placeholder for the object being piped (my_df in this
-# example). For our starwars data, choosing the same columns as above, it
+# example). Now let's apply this different method to our starwars data,
+# selecting the same columns as before.
 # CODE HERE
 
 
 # filter() ----------------------------------------------------------------
 
 # This function allows us to extract rows from a dataframe, using some sort of
-# logical criteria. So you could extract rows for which the value of a
+# logical criteria. So, you could extract rows for which the value of a
 # particular column is negative (< 0). Or extract rows which contain a certain
-# (non-numerical) value, such as a place or name. Filter works as follows:
+# (non-numerical) value, such as a particular place or name.
 new_df <- my_df %>% filter(col1 < 0)
 
 # Or, for strings (i.e. "words"):
@@ -80,9 +85,9 @@ new_df <- my_df %>% mutate(new_col = col1 * 2)
 # CODE HERE
 
 
-# Combining functions with pipes ------------------------------------------
+# Combining functions through pipes ---------------------------------------
 
-# Now is where we will see the real usefulness of pipes: they allow us to chain
+# Now is where we will see the real utility of pipes: they allow us to chain
 # together multiple steps into a single command. The output of one function
 # (e.g. select() ) can be piped into another function (e.g. filter() ). This
 # allows us to combine multiple steps and run them all at once.
@@ -91,8 +96,8 @@ new_df <- my_df %>%
   filter(col2 == "blue") %>%
   mutate(new_col = col1 * 2)
 
-# Let's try it on our starwars dataset, selecting columns of interest,
-# filtering on species, and converting mass to pounds:
+# Let's try it on our starwars dataset, selecting columns of interest, filtering
+# on species, and converting mass to pounds:
 # CODE HERE
 
 
@@ -100,8 +105,9 @@ new_df <- my_df %>%
 
 # These functions allow us to perform operations on subsets of data.
 # group_by() "groups" rows based on a column/value, e.g. all rows for which
-# "species" is equal to human. Then, summarise() performs some operation on
-# each group as a whole.
+# colour (a column name) is equal to "blue". Then, summarise() performs some
+# operation on each group as a whole. In this example, we would be grouping
+# based on values in col1, then calculating the mean of col2 for each group.
 new_df <- my_df %>%
   group_by(col1) %>%
   summarise(mean(col2))
@@ -111,14 +117,14 @@ new_df <- my_df %>%
 # CODE HERE
 
 # Another example, this time getting two different summaries, one for height
-# and one for mass (both will be a mean() calculation).
+# and one for mass.
 # CODE HERE
 
 
 # Tying it all together ---------------------------------------------------
 
-# Now let's use all of the functions we've learned thus far together in a single
-# command, tied together via pipes. Let's say we want to calculate the average mass,
-# in pounds, for each species, but only for characters above a certain height. We could
-# do this as follows:
+# Now let's use all of the functions we've learned thus far in a single command,
+# strung together via pipes. Let's say we want to calculate the average mass,
+# in pounds, for each species, but only for characters above a certain height.
+# We could do this as follows:
 # CODE HERE
