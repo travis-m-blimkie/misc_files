@@ -42,7 +42,7 @@ new_df <- my_df %>%
   select(.data = ., col1, col2, col4, ...)
 
 # The "." is simply a placeholder for the object being piped (my_df in this
-# example). For our starwars data, it look like this:
+# example). For our starwars data, it looks like this:
 # CODE HERE
 
 
@@ -59,7 +59,7 @@ new_df <- my_df %>% filter(col2 == "blue")
 
 # Equality in R is done using "==", while "=" is for assignment of aguments.
 
-# Lets use filter to pick certain rows from the starwars data:
+# Let's use filter to pick certain rows from the starwars data:
 # CODE HERE
 
 # Another example, this time using a numeric column (i.e. logical criteria):
@@ -73,7 +73,7 @@ new_df <- my_df %>% filter(col2 == "blue")
 # strings). It works as follows:
 new_df <- my_df %>% mutate(new_col = col1 * 2)
 
-# Let's use mutate() to convert the mass column from kg to lbs
+# Let's use mutate() to convert the mass column from kg to lbs:
 # CODE HERE
 
 
@@ -97,7 +97,7 @@ new_df <- my_df %>%
 
 # These functions allow us to perform operations on subsets of data.
 # group_by() "groups" rows based on a column/value, e.g. all rows for which
-# "species" is equal to human. Then, summarize() performs some operation on
+# "species" is equal to human. Then, summarise() performs some operation on
 # each group as a whole.
 new_df <- my_df %>%
   group_by(col1) %>%
