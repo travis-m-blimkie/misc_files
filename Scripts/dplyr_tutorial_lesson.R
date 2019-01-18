@@ -43,12 +43,7 @@ new_df <- my_df %>%
   select(.data = ., col1, col2, col4, ...)
 
 # The "." is simply a placeholder for the object being piped (my_df in this
-<<<<<<< HEAD
 # example). For our starwars data, choosing the same columns as above, it
-# would look like this:
-=======
-# example). For our starwars data, it looks like this:
->>>>>>> master
 # CODE HERE
 
 
@@ -65,12 +60,8 @@ new_df <- my_df %>% filter(col2 == "blue")
 
 # Equality in R is done using "==", while "=" is for assignment of aguments.
 
-<<<<<<< HEAD
 # Let's use filter to pick certain rows from the starwars data, choosing
 # characters (rows) which are human:
-=======
-# Let's use filter to pick certain rows from the starwars data:
->>>>>>> master
 # CODE HERE
 
 # Another example, this time using a numeric column (i.e. logical criteria) to
