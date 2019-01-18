@@ -30,7 +30,7 @@ starwars <- starwars
 new_df <- select(my_df, col1, col2, col4, ...)
 
 # For our starwars dataset, this would work as follows:
-starwars_2 <- select(.data = starwars, name, height, homeworld, species)
+# CODE HERE
 
 # We can rewrite the same command, this time making use of the %>% function.
 # This function pushes or "pipes" the desired object into the following
@@ -40,8 +40,7 @@ new_df <- my_df %>%
 
 # The "." is simply a placeholder for the object being piped (my_df in this
 # case). For our starwars data, it look like this:
-starwars_2 <- starwars %>%
-  select(.data = ., name, height, mass, homeworld, species)
+# CODE HERE
 
 
 # filter() ----------------------------------------------------------------
@@ -58,10 +57,10 @@ new_df <- my_df %>% filter(col2 == "blue")
 # Equality in R is done using "==", while "=" is for assignment of aguments
 
 # Lets use filter to pick certain rows from the starwars data
-starwars_3 <- starwars %>% filter(species == "Human")
+# CODE HERE
 
 # Another example, this time using a numeric column (i.e. logical criteria):
-starwars_4 <- starwars %>% filter(height >= 100)
+# CODE HERE
 
 
 # mutate() ----------------------------------------------------------------
@@ -72,7 +71,7 @@ starwars_4 <- starwars %>% filter(height >= 100)
 new_df <- my_df %>% mutate(new_col = col1 * 2)
 
 # Let's use mutate() to convert the mass column from kg to lbs
-starwars_5 <- starwars %>% mutate(mass_lbs = mass * 2.2)
+# CODE HERE
 
 
 # Combining functions with pipes ------------------------------------------
@@ -86,11 +85,9 @@ new_df <- my_df %>%
   filter(col2 == "blue") %>%
   mutate(new_col = col1 * 2)
 
-# Let's try it on our starwars dataset:
-starwars_new <- starwars %>%
-  select(name, height, mass, homeworld, species) %>%
-  filter(species == "Human") %>%
-  mutate(mass_lbs = mass * 2.2)
+# Let's try it on our starwars dataset, selecting columns of interest,
+# filtering on species, and converting mass to pounds:
+# CODE HERE
 
 
 # group_by() and summarise() ----------------------------------------------
@@ -105,15 +102,11 @@ new_df <- my_df %>%
 
 # So, let's use these functions to calculate the average height for each
 # species in the starwars dataset.
-starwars_grp <- starwars %>%
-  group_by(species) %>%
-  summarise(mean(height))
+# CODE HERE
 
 # Another example, this time getting two different summaries, one for height
 # and one for mass (both will be a mean() ).
-starwars_grp2 <- starwars %>%
-  group_by(homeworld) %>%
-  summarise(avg_height = mean(height), avg_mass = mean(mass))
+# CODE HERE
 
 
 # Tying it all together ---------------------------------------------------
@@ -122,9 +115,4 @@ starwars_grp2 <- starwars %>%
 # command, tied together via pipes. Let's say we want to calculate the average mass,
 # in pounds, for each species, but only for characters above a certain height. We could
 # do this as follows:
-starwars_final <- starwars %>%
-  select(name, height, mass, species) %>%
-  filter(height >= 100) %>%
-  mutate(mass_lbs = mass * 2.2) %>%
-  group_by(species) %>%
-  summarise(mean(mass_lbs))
+# CODE HERE

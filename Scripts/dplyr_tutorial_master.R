@@ -86,7 +86,8 @@ new_df <- my_df %>%
   filter(col2 == "blue") %>%
   mutate(new_col = col1 * 2)
 
-# Let's try it on our starwars dataset:
+# Let's try it on our starwars dataset, selecting columns of interest,
+# filtering on species, and converting mass to pounds:
 starwars_new <- starwars %>%
   select(name, height, mass, homeworld, species) %>%
   filter(species == "Human") %>%
