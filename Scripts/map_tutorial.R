@@ -36,3 +36,4 @@ map(practice_list, ~sqrt(.))
 
 # Include use of pipes
 new_list <- practice_list %>% map(~sqrt(.))
+
