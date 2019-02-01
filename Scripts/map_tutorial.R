@@ -42,3 +42,17 @@ new_list <- practice_list %>% map(~sqrt(.))
 treatment1 <- read.csv("https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment1_vs_ctrl.csv")
 treatment2 <- read.csv("https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment2_vs_ctrl.csv")
 
+# Put both data frames into a list
+treatment_list <- list(treat1 = treatment1,
+                       treat2 = treatment2)
+
+# To access one of the data frames (by name)
+treatment_list$treat1
+
+# Applying a function to one of these data frames
+nrow(treatment_list$treat1)
+
+# Using map to do the same function to both data frames
+treatment_list %>% map(~nrow(.))
+# Notice that names are maintained
+
