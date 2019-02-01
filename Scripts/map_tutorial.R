@@ -1,27 +1,44 @@
 
 # Loops, apply(), and purrr::map()
 
+# Basic list to show some simple examples
 practice_list <- list(a = 9,
                       b = 16,
                       c = 25)
 
+# Getting the names given to items in the list
 names(practice_list)
 
+# Accessing specific items via name or index
+practice_list[1]
 
-# for loop method
-for (i in practice_list) {
-  print(i * 2)
+practice_list[[1]]
+
+practice_list$a
+
+
+# for loop method to apply some function to each item in the list
+for (i in 1:length(practice_list)) {
+
+  print(practice_list[i])
+
+  print(practice_list[[i]] * 2)
+
 }
 
 
-# for loop, saving the result
+# Again using a for loop, this time saving the result to a new list
+
+# List needs to be initialized outside the for loop
 output_list <- list()
-for (i in practice_list) {
-  output_list[i] = sqrt(i)
+
+for (i in 1:length(practice_list)) {
+  output_list[i] = sqrt(practice_list[[i]])
 }
 
 # Names are not carried over from the original list, but can be added
 names(output_list)
+names(output_list) <- names(practice_list)
 
 
 # apply() method
@@ -39,8 +56,10 @@ new_list <- practice_list %>% map(~sqrt(.))
 
 
 # Load in gene data
-treatment1 <- read.csv("https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment1_vs_ctrl.csv")
-treatment2 <- read.csv("https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment2_vs_ctrl.csv")
+treatment1 <- read.csv(
+  "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment1_vs_ctrl.csv")
+treatment2 <- read.csv(
+  "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment2_vs_ctrl.csv")
 
 # Put both data frames into a list
 treatment_list <- list(treat1 = treatment1,
