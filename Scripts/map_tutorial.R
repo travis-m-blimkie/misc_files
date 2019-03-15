@@ -1,4 +1,6 @@
 
+library(tidyverse)
+
 # Loops, apply(), and purrr::map()
 
 # Basic list to show some simple examples
@@ -39,14 +41,15 @@ for (i in 1:length(practice_list)) {
 # Names are not carried over from the original list, but can be added
 names(output_list)
 names(output_list) <- names(practice_list)
+names(output_list)
 
 
 # apply() method
-lapply(X = practice_list, sqrt(x))
+lapply(X = practice_list, FUN = sqrt)
 
 
 # map method
-map(.x = practice_list, function(x) x * 2)
+map(.x = practice_list, sqrt)
 
 # More concise map method
 map(practice_list, ~sqrt(.))
@@ -66,10 +69,16 @@ treatment_list <- list(treat1 = treatment1,
                        treat2 = treatment2)
 
 # To access one of the data frames (by name)
-treatment_list$treat1
+glimpse(treatment_list$treat1)
 
 # Applying a function to one of these data frames
 nrow(treatment_list$treat1)
+
+# for loop method
+for (i in 1:length(treatment_list)) {
+  print(nrow(treatment_list[[i]]))
+}
+
 
 # Using map to do the same function to both data frames
 treatment_list %>% map(~nrow(.))
