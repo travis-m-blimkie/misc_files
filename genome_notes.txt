@@ -1,0 +1,30 @@
+Header of "Pseudomonas_aeruginosa_UCBPP-PA14_109.fna" was changed to "chrosome" as chromosome name in order to match gtf file.
+
+Additions to gtf file:
+chromosome	Taylor	CDS	140273	141181	.	-	0	gene_id "PA14sr_01500"; locus_tag "PA14sr_01500"; name "sRNA PA14sr_01500, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	341120	341309	.	+	0	gene_id "PA14sr_012"; locus_tag "PA14sr_012"; name "sRNA PA14sr_012, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	348674	348845	.	-	0	gene_id "PA14sr_P1"; locus_tag "PA14sr_P1"; name "sRNA PA14sr_P1, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	596840	596963	.	+	0	gene_id "PA14sr_rsmY"; locus_tag "PA14sr_rsmY"; name "sRNA PA14sr_rsmY, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	729719	731062	.	-	0	gene_id "PA14sr_08540"; locus_tag "PA14sr_08540"; name "sRNA PA14sr_08540, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	4858822	4858900	.	+	0	gene_id "PA14sr_122"; locus_tag "PA14sr_122"; name "sRNA PA14sr_122, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	4773793	4773960	.	+	0	gene_id "PA14sr_119"; locus_tag "PA14sr_119"; name "sRNA PA14sr_119, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	4774020	4774142	.	-	0	gene_id "PA14sr_120"; locus_tag "PA14sr_120"; name "sRNA PA14sr_120, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	4605904	4606040	.	+	0	gene_id "PA14sr_112"; locus_tag "PA14sr_112"; name "sRNA PA14sr_112, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	4394294	4394580	.	+	0	gene_id "PA14sr_105"; locus_tag "PA14sr_105"; name "sRNA PA14sr_105, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	2867353	2867490	.	+	0	gene_id "PA14sr_076"; locus_tag "PA14sr_076"; name "sRNA PA14sr_076, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	2867990	2868119	.	-	0	gene_id "PA14sr_077"; locus_tag "PA14sr_077"; name "sRNA PA14sr_077, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	2604164	2604521	.	+	0	gene_id "PA14sr_067"; locus_tag "PA14sr_067"; name "sRNA PA14sr_067, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	2256650	2256866	.	-	0	gene_id "PA14sr_061"; locus_tag "PA14sr_061"; name "sRNA PA14sr_061, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	4012071	4012541	.	-	0	gene_id "PA14sr_17990"; locus_tag "PA14sr_17990"; name "sRNA PA14sr_17990, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	5479845	5480040	.	+	0	gene_id "PA14sr_139"; locus_tag "PA14sr_139"; name "sRNA PA14sr_139, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	5495499	5496416	.	-	0	gene_id "PA14sr_61590"; locus_tag "PA14sr_61590"; name "sRNA PA14sr_61590, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	5580968	5581060	.	+	0	gene_id "PA14sr_141"; locus_tag "PA14sr_141"; name "sRNA PA14sr_141, from Taylor and Wurtzel"
+chromosome	Taylor	CDS	6259647	6259691	.	-	0	gene_id "PA14sr_154"; locus_tag "PA14sr_154"; name "sRNA PA14sr_154, from Taylor and Wurtzel"
+chromosome	Shannon	CDS	4773611	4774170	.	+	0	gene_id "PA14_0805.1"; locus_id "PA14sr_0805"; name "560 bp intergenic region and sRNA from Shannon"
+chromosome	Shannon	CDS	2256571	2256890	.	+	0	gene_id "PA14_2952.1"; locus_id "PA14sr_2952"; name "320 bp intergenic region and sRNA from Shannon"
+
+
+
+Calculated SAIndex size of 10 using formula from STAR manual and a genome size of 6537648, from "pseudomonas.com".
+
+Index created successfully with these additions.
