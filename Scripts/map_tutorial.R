@@ -24,8 +24,6 @@ practice_list$a
 # for loop method to apply some function to each item in the list
 for (i in 1:length(practice_list)) {
 
-  print(practice_list[i])
-
   print(practice_list[[i]] * 2)
 
 }
@@ -60,9 +58,11 @@ new_list <- practice_list %>% map(~sqrt(.))
 # Load in gene data
 treatment1 <- read.csv(
   "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment1_vs_ctrl.csv")
+
 treatment2 <- read.csv(
   "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment2_vs_ctrl.csv")
 
+# Take a quick look at the data frame
 glimpse(treatment1)
 
 # Put both data frames into a list
@@ -78,6 +78,7 @@ nrow(treatment_list$treat1)
 
 # How to get the number of rows (genes) in each data frame?
 
+
 # for loop method
 for (i in 1:length(treatment_list)) {
   print(nrow(treatment_list[[i]]))
@@ -85,13 +86,19 @@ for (i in 1:length(treatment_list)) {
 
 
 # Using map to do the same function to both data frames
+map(treatment_list, function(x) {
+  nrow(x)
+})
+
+
 treatment_list %>% map(~nrow(.))
-# Notice that names are maintained
 
 
-# Column selection still works with map
+# Can use function like select()
 select_df <- treatment_list %>% map(~select(., locus_tag, padj, FC))
+
 glimpse(select_df$treat1)
+glimpse(select_df$treat2)
 
 
 # Demonstration:
