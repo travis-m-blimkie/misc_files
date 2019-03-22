@@ -13,8 +13,10 @@ names(practice_list)
 
 # Accessing specific items via name or index
 practice_list[1]
+class(practice_list[1])
 
 practice_list[[1]]
+class(practice_list[[1]])
 
 practice_list$a
 
@@ -51,9 +53,6 @@ lapply(X = practice_list, FUN = sqrt)
 # map method
 map(.x = practice_list, sqrt)
 
-# More concise map method
-map(practice_list, ~sqrt(.))
-
 # Include use of pipes
 new_list <- practice_list %>% map(~sqrt(.))
 
@@ -63,6 +62,8 @@ treatment1 <- read.csv(
   "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment1_vs_ctrl.csv")
 treatment2 <- read.csv(
   "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment2_vs_ctrl.csv")
+
+glimpse(treatment1)
 
 # Put both data frames into a list
 treatment_list <- list(treat1 = treatment1,
@@ -74,6 +75,9 @@ glimpse(treatment_list$treat1)
 # Applying a function to one of these data frames
 nrow(treatment_list$treat1)
 
+
+# How to get the number of rows (genes) in each data frame?
+
 # for loop method
 for (i in 1:length(treatment_list)) {
   print(nrow(treatment_list[[i]]))
@@ -84,3 +88,36 @@ for (i in 1:length(treatment_list)) {
 treatment_list %>% map(~nrow(.))
 # Notice that names are maintained
 
+
+# Column selection still works with map
+select_df <- treatment_list %>% map(~select(., locus_tag, padj, FC))
+glimpse(select_df$treat1)
+
+
+# Demonstration:
+# Example of file reading with map() and list.files()
+my_treatments <- list("treatment1", "treatment2")
+
+my_files <- my_treatments %>%
+  map(~list.files(path = "/cygwin64/home/Laptop/mybin/misc_files/MyData",
+                  pattern = .,
+                  full.names = T))
+
+my_dfs <- my_files %>%
+  map(~read_csv(file = .)
+      ) %>% set_names(my_treatments)
+
+
+# Map in parallel with map2()
+# Filter each of our data frames on different values (SAME COLUMN)
+filter_vals <- c(5, 2)
+
+filtered_dfs <- map2(treatment_list, filter_vals, function(df, val)
+  filter(df, ABSLFC >= val)
+  )
+
+
+# Saving specifically named files with map2()
+map2(filtered_dfs, names(filtered_dfs), function(df, nm)
+  write_csv(df, path = paste0("new_df_", nm, ".csv"))
+  )
