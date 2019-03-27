@@ -1,23 +1,30 @@
 
+# Load the tidyverse, which includes purrr
 library(tidyverse)
 
-# Loops, apply(), and purrr::map()
 
 # Basic list to show some simple examples
 practice_list <- list(a = 9,
                       b = 16,
                       c = 25)
 
+
 # Getting the names given to items in the list
 names(practice_list)
 
-# Accessing specific items via name or index
+
+# Accessing specific items via index
+# Notice the type of object returned here
 practice_list[1]
 class(practice_list[1])
 
+
+# Compared to the type of object returned here
 practice_list[[1]]
 class(practice_list[[1]])
 
+
+# Using name with "$" is like using [[ ]]
 practice_list$a
 
 
@@ -30,7 +37,6 @@ for (i in 1:length(practice_list)) {
 
 
 # Again using a for loop, this time saving the result to a new list
-
 # List needs to be initialized outside the for loop
 output_list <- list()
 
@@ -38,18 +44,25 @@ for (i in 1:length(practice_list)) {
   output_list[i] = sqrt(practice_list[[i]])
 }
 
+
 # Names are not carried over from the original list, but can be added
 names(output_list)
+
 names(output_list) <- names(practice_list)
 names(output_list)
 
 
-# apply() method
+# Or use purrr::set_names()
+output_list <- output_list %>% set_names(., nm = names(practice_list))
+
+
+# bas::lapply() method
 lapply(X = practice_list, FUN = sqrt)
 
 
-# map method
+# purrr::map() method
 map(.x = practice_list, sqrt)
+
 
 # Include use of pipes
 new_list <- practice_list %>% map(~sqrt(.))
@@ -62,6 +75,7 @@ treatment1 <- read.csv(
 treatment2 <- read.csv(
   "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment2_vs_ctrl.csv")
 
+
 # Take a quick look at the data frame
 glimpse(treatment1)
 
@@ -69,8 +83,10 @@ glimpse(treatment1)
 treatment_list <- list(treat1 = treatment1,
                        treat2 = treatment2)
 
+
 # To access one of the data frames (by name)
 glimpse(treatment_list$treat1)
+
 
 # Applying a function to one of these data frames
 nrow(treatment_list$treat1)
@@ -104,9 +120,10 @@ glimpse(select_df$treat2)
 # Demonstration:
 # Example of file reading with map() and list.files()
 my_treatments <- list("treatment1", "treatment2")
+my_path <- "/cygwin64/home/Laptop/mybin/misc_files/MyData"
 
 my_files <- my_treatments %>%
-  map(~list.files(path = "/cygwin64/home/Laptop/mybin/misc_files/MyData",
+  map(~list.files(path = my_path,
                   pattern = .,
                   full.names = T))
 
@@ -119,12 +136,34 @@ my_dfs <- my_files %>%
 # Filter each of our data frames on different values (SAME COLUMN)
 filter_vals <- c(5, 2)
 
-filtered_dfs <- map2(treatment_list, filter_vals, function(df, val)
+filtered_dfs <- map2(treatment_list, filter_vals, function(df, val) {
   filter(df, ABSLFC >= val)
-  )
+  }
+)
 
 
 # Saving specifically named files with map2()
-map2(filtered_dfs, names(filtered_dfs), function(df, nm)
+map2(filtered_dfs, names(filtered_dfs), function(df, nm) {
   write_csv(df, path = paste0("new_df_", nm, ".csv"))
+  }
+)
+
+
+# Using map() to do string replacement in all columns of a data frame
+# Set up dummy data frame
+ex_df <- tibble(
+  colA = paste0("=", sample(50, size = 20)),
+  colB = paste0(sample(letters, size = 20), "=", sample(50, size = 20))
+)
+
+
+# Using just map() returns the wrong type
+ex_df2 <- ex_df %>%
+  map(~str_replace_all(string = ., pattern = "=", replacement = "")
+)
+
+
+# Specify return of a data frame
+ex_df2 <- ex_df %>%
+  map_df(~str_replace_all(string = ., pattern = "=", replacement = "")
   )
