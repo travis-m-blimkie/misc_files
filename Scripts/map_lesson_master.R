@@ -37,7 +37,7 @@ for (i in 1:length(practice_list)) {
 
 
 # Again using a for loop, this time saving the result to a new list
-# List needs to be initialized outside the for loop
+# List needs to be created outside the for loop
 output_list <- list()
 
 for (i in 1:length(practice_list)) {
@@ -78,6 +78,7 @@ treatment2 <- read.csv(
 
 # Take a quick look at the data frame
 glimpse(treatment1)
+
 
 # Put both data frames into a list
 treatment_list <- list(treat1 = treatment1,
@@ -131,9 +132,10 @@ my_dfs <- my_files %>%
       ) %>% set_names(my_treatments)
 
 
-# Map in parallel with map2()
+# Map in parallel with purrr::map2()
 # Filter each of our data frames on different values (SAME COLUMN)
 filter_vals <- c(5, 2)
+
 
 filtered_dfs <- map2(treatment_list, filter_vals, function(df, val) {
   filter(df, ABSLFC >= val)
