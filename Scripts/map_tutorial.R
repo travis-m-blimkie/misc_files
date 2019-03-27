@@ -56,7 +56,7 @@ names(output_list)
 output_list <- output_list %>% set_names(., nm = names(practice_list))
 
 
-# bas::lapply() method
+# base::lapply() method
 lapply(X = practice_list, FUN = sqrt)
 
 
@@ -114,7 +114,6 @@ treatment_list %>% map(~nrow(.))
 select_df <- treatment_list %>% map(~select(., locus_tag, padj, FC))
 
 glimpse(select_df$treat1)
-glimpse(select_df$treat2)
 
 
 # Demonstration:
