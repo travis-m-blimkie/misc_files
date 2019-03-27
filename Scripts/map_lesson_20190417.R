@@ -19,7 +19,14 @@ treatment2 <- read.csv(
 
 # Using map() to do string replacement in all columns of a data frame
 # Set up dummy data frame
-ex_df <- tibble(
+ex_df_1 <- tibble(
   colA = paste0("=", sample(50, size = 20)),
   colB = paste0(sample(letters, size = 20), "=", sample(50, size = 20))
 )
+
+ex_df_2 <- tibble(
+  colA = paste0("=", sample(50, size = 20)),
+  colB = paste0(sample(letters, size = 20), "=", sample(50, size = 20))
+)
+
+ex_df_list <- list(ex1 = ex_df_1, ex2 = ex_df_2)

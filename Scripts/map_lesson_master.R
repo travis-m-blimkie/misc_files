@@ -152,19 +152,38 @@ map2(filtered_dfs, names(filtered_dfs), function(df, nm) {
 
 # Using map() to do string replacement in all columns of a data frame
 # Set up dummy data frame
-ex_df <- tibble(
+ex_df_1 <- tibble(
   colA = paste0("=", sample(50, size = 20)),
   colB = paste0(sample(letters, size = 20), "=", sample(50, size = 20))
 )
 
 
 # Using just map() returns the wrong type
-ex_df2 <- ex_df %>%
-  map(~str_replace_all(string = ., pattern = "=", replacement = "")
-)
+ex_df_1 %>%
+  map(~str_replace_all(string = ., pattern = "=", replacement = "")) %>%
+  glimpse()
 
 
 # Specify return of a data frame
-ex_df2 <- ex_df %>%
-  map_df(~str_replace_all(string = ., pattern = "=", replacement = "")
-  )
+ex_df_1 %>%
+  map_df(~str_replace_all(string = ., pattern = "=", replacement = "")) %>%
+  glimpse()
+
+
+# Creating a similar second data frame
+ex_df_2 <- tibble(
+  colA = paste0("=", sample(50, size = 20)),
+  colB = paste0(sample(letters, size = 20), "=", sample(50, size = 20))
+)
+
+
+# Combine into a list
+ex_df_list <- list(ex1 = ex_df_1, ex2 = ex_df_2)
+
+
+# Use map() withtin map()!
+new_df_list <- map(ex_df_list, function(x) {
+  map_df(x, function(y) {
+    str_replace_all(string = y, pattern = "=", replacement = "")
+  })
+})
