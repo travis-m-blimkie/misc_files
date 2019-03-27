@@ -112,7 +112,7 @@ treatment_list %>% map(~nrow(.))
 
 
 # Can use function like select()
-select_df <- treatment_list %>% map(~select(., locus_tag, padj, FC))
+select_df <- treatment_list %>% map(~select(., gene_id, padj, FC))
 
 glimpse(select_df$treat1)
 
