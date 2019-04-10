@@ -103,10 +103,7 @@ for (i in 1:length(treatment_list)) {
 
 
 # Using map to do the same function to both data frames
-map(treatment_list, function(x) {
-  nrow(x)
-})
-
+map(treatment_list, nrow)
 
 treatment_list %>% map(~nrow(.))
 
@@ -115,21 +112,6 @@ treatment_list %>% map(~nrow(.))
 select_df <- treatment_list %>% map(~select(., gene_id, padj, FC))
 
 glimpse(select_df$treat1)
-
-
-# Demonstration:
-# Example of file reading with map() and list.files()
-my_treatments <- list("treatment1", "treatment2")
-my_path <- "/cygwin64/home/Laptop/mybin/misc_files/MyData"
-
-my_files <- my_treatments %>%
-  map(~list.files(path = my_path,
-                  pattern = .,
-                  full.names = T))
-
-my_dfs <- my_files %>%
-  map(~read_csv(file = .)
-      ) %>% set_names(my_treatments)
 
 
 # Map in parallel with purrr::map2()
@@ -187,3 +169,19 @@ new_df_list <- map(ex_df_list, function(x) {
     str_replace_all(string = y, pattern = "=", replacement = "")
   })
 })
+
+
+
+# Demonstration:
+# Example of file reading with map() and list.files()
+my_treatments <- list("treatment1", "treatment2")
+my_path <- "/cygwin64/home/Laptop/mybin/misc_files/MyData"
+
+my_files <- my_treatments %>%
+  map(~list.files(path = my_path,
+                  pattern = .,
+                  full.names = T))
+
+my_dfs <- my_files %>%
+  map(~read_csv(file = .)
+  ) %>% set_names(my_treatments)
