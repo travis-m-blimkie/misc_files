@@ -11,10 +11,10 @@ practice_list <- list(a = 9,
 
 # Load in gene data
 treatment1 <- read.csv(
-  "https://raw.githubusercontent.com/UBC-R-Study-group/studyGroup/20190417_map_lesson/lessons/20190417_map/genes_treatment1_vs_ctrl.csv")
+  "")
 
 treatment2 <- read.csv(
-  "https://raw.githubusercontent.com/UBC-R-Study-group/studyGroup/20190417_map_lesson/lessons/20190417_map/genes_treatment2_vs_ctrl.csv")
+  "")
 
 
 # Using map() to do string replacement in all columns of a data frame
