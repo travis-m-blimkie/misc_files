@@ -70,10 +70,10 @@ new_list <- practice_list %>% map(~sqrt(.))
 
 # Load in gene data
 treatment1 <- read.csv(
-  "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment1_vs_ctrl.csv")
+  "https://raw.githubusercontent.com/UBC-R-Study-group/studyGroup/gh-pages/lessons/20190417_map/genes_treatment1_vs_ctrl.csv")
 
 treatment2 <- read.csv(
-  "https://raw.githubusercontent.com/travis-m-blimkie/misc_files/master/MyData/genes_treatment2_vs_ctrl.csv")
+  "https://raw.githubusercontent.com/UBC-R-Study-group/studyGroup/gh-pages/lessons/20190417_map/genes_treatment2_vs_ctrl.csv")
 
 
 # Take a quick look at the data frame
