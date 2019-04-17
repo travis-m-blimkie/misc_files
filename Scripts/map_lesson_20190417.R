@@ -16,7 +16,11 @@ treatment1 <- read.csv(
 treatment2 <- read.csv(
   "")
 
+# Put both data frames into a list
+treatment_list <- list(treat1 = treatment1,
+                       treat2 = treatment2)
 
+                       
 # Using map() to do string replacement in all columns of a data frame
 # Set up dummy data frame
 ex_df_1 <- tibble(
